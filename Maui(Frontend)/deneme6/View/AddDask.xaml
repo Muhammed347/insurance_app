@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="deneme6.View.AddDask"
+             xmlns:viewmodel="clr-namespace:deneme6.ViewModel"
+             x:DataType="viewmodel:AddDaskModelView"
+             Title="{Binding Title}">
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand">
+            <Label Text="Product no" />
+            <Picker Title="Select product" 
+            ItemsSource="{Binding Products}" 
+            SelectedItem="{Binding SelectedProduct}" 
+            HorizontalOptions="FillAndExpand" 
+            Margin="50,0,0,0"/>
+        </StackLayout>
+       
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+            <Label Text="Address:" />
+            <Entry Text="{Binding Address}" Placeholder="address" HorizontalOptions="FillAndExpand" Margin="94,0,0,0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+            <Label Text="City:" />
+            <Entry Text="{Binding City}" Placeholder="City" HorizontalOptions="FillAndExpand" Margin="122,0,0,0"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" >
+            <Label Text="District:" />
+            <Entry Text="{Binding District}" Placeholder="district" HorizontalOptions="FillAndExpand" Margin="107,0,0,0"/>
+        </StackLayout>
+
+
+        <Button Text="Ekle" Command="{Binding AddClickCommand}" BackgroundColor="#2B3D50"/>
+    </VerticalStackLayout>
+</ContentPage>

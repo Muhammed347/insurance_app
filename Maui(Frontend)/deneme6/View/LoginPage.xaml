@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="deneme6.View.LoginPage"
+             xmlns:model="clr-namespace:deneme6.Model"
+             xmlns:viewmodel="clr-namespace:deneme6.ViewModel"
+             x:DataType="viewmodel:PersonsViewModel"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        
+        <StackLayout Padding="0,150,0,50" Orientation="Horizontal" HorizontalOptions="Center" Grid.Row="0">
+            <Frame Padding="0" HeightRequest="100" WidthRequest="100" CornerRadius="45" HasShadow="False" VerticalOptions="Center">
+                <Image Source="usericon.png" HeightRequest="100" WidthRequest="100" VerticalOptions="Center" Aspect="AspectFill" />
+            </Frame>
+        </StackLayout>
+
+
+
+        <Frame Padding="10,2,10,2" Grid.Row="1">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Name" VerticalOptions="Center" WidthRequest="60" />
+                <Entry x:Name="entryName" VerticalOptions="Center">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior
+                            x:Name="nameValidator"
+                            MinimumLength="1"
+                            Flags="ValidateOnAttaching,ValidateOnValueChanged"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+        </Frame>
+      
+        <Frame Padding="10,2,10,2" Grid.Row="2">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Password" VerticalOptions="Center" WidthRequest="65" />
+                <Entry x:Name="txtPass" VerticalOptions="Center" IsPassword="True">
+                    <Entry.Behaviors>
+                        <toolkit:TextValidationBehavior
+                            x:Name="passwordValidator"
+                            MinimumLength="1"
+                            Flags="ValidateOnAttaching,ValidateOnValueChanged"/>
+                    </Entry.Behaviors>
+                </Entry>
+            </StackLayout>
+        </Frame>
+       
+        <Button Text="Enter" Clicked="Button_Clicked" IsEnabled="{Binding IsNotBusy}" Grid.Row="3" Style="{StaticResource ButtonOutline}" Margin="8"/>
+    </Grid>
+
+
+</ContentPage>

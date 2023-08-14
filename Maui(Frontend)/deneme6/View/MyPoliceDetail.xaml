@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="deneme6.View.MyPoliceDetail"
+             xmlns:model="clr-namespace:deneme6.Model"
+             xmlns:viewmodel="clr-namespace:deneme6.ViewModel"
+             x:DataType="viewmodel:MyPoliceViewModel"
+             Title="{Binding Title}">
+    <ScrollView>
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+        <StackLayout Grid.ColumnSpan="2">
+
+            <CollectionView ItemsSource="{Binding PolicyTraffics}"
+                         SelectionMode="None"
+                         Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:PolicyTraffic">
+                    <Grid Padding="10">
+                                <Frame HeightRequest="200" Style="{StaticResource CardView}">
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding IsExpired}" Value="True">
+                                            <Setter Property="Opacity" Value="0.5" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+
+                                    <Grid Padding="0" ColumnDefinitions="125,*">
+                                        <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Padding="10">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding PlateCityCode}" />
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding PlateCode}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Name}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Prim}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding StartDate}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding ExpiryDate}" />
+                                            <Button                            
+                                                Text="Delete"
+                                                BackgroundColor="#2B3D50"
+                                                TextColor="White" 
+                                                CornerRadius="5"                            
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type 
+                                                viewmodel:MyPoliceViewModel}}, Path=DeleteTrafficCommand}"
+                                                CommandParameter="{Binding TrafficId}"
+                                                TranslationX="10" 
+                                                HeightRequest="35" 
+                                                WidthRequest="75" 
+                                                HorizontalOptions="Start" 
+                                                VerticalOptions="Center" 
+                                            />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <CollectionView ItemsSource="{Binding PolicyDasks}"
+                         SelectionMode="None"
+                         Grid.ColumnSpan="2">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:PolicyDask">
+                    <Grid Padding="10">
+                                <Frame HeightRequest="200" Style="{StaticResource CardView}">
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding IsExpired}" Value="True">
+                                            <Setter Property="Opacity" Value="0.5" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                    <Grid Padding="0" ColumnDefinitions="125,*">
+                                        <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Padding="10">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding City}" />
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding District}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Name}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Prim}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding StartDate}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding ExpiryDate}" />
+                                            <Button                            
+                                                Text="Delete"
+                                                BackgroundColor="#2B3D50"
+                                                TextColor="White" 
+                                                CornerRadius="5"                            
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type 
+                                                viewmodel:MyPoliceViewModel}}, Path=DeleteDaskCommand}"
+                                                CommandParameter="{Binding DaskId}"
+                                                TranslationX="10" 
+                                                HeightRequest="35" 
+                                                WidthRequest="75" 
+                                                HorizontalOptions="Start" 
+                                                VerticalOptions="Center" 
+                                            />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        
+
+        <CollectionView ItemsSource="{Binding PolicyKaskos}"
+                         SelectionMode="None"
+                         Grid.ColumnSpan="2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:PolicyKasko">
+                            <Grid Padding="10">
+                                <Frame HeightRequest="200" Style="{StaticResource CardView}">
+                                    <Frame.Triggers>
+                                        <DataTrigger TargetType="Frame" Binding="{Binding IsExpired}" Value="True">
+                                            <Setter Property="Opacity" Value="0.5" />
+                                        </DataTrigger>
+                                    </Frame.Triggers>
+                                    <Grid Padding="0" ColumnDefinitions="125,*">
+                                        <VerticalStackLayout
+                                    Grid.Column="1"
+                                    VerticalOptions="Center"
+                                    Padding="10">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding VehicleBrand}" />
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding VehicleModel}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Name}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Prim}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding StartDate}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding ExpiryDate}" />
+                                            <Button
+                                                Text="Delete"
+                                                BackgroundColor="#2B3D50"
+                                                TextColor="White" 
+                                                CornerRadius="5"                            
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type 
+                                    viewmodel:MyPoliceViewModel}}, Path=DeleteKaskoCommand}"
+                                                CommandParameter="{Binding KaskoId}"
+                                                TranslationX="10" 
+                                                HeightRequest="35" 
+                                                WidthRequest="75" 
+                                                HorizontalOptions="Start" 
+                                                VerticalOptions="Center" 
+                                            />
+                                        </VerticalStackLayout>
+
+                                    </Grid>
+                                </Frame>
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+        </StackLayout>
+
+        <Button Text="Policeleri Sirala" 
+                Command="{Binding GetDasksWithIdCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Grid.Column="0"
+                Style="{StaticResource ButtonOutline}"
+                Margin="8"/>
+        
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="Fill"
+                           VerticalOptions="Center"
+			   Color="{StaticResource Primary}"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2"/>
+
+    </Grid>
+    </ScrollView>
+</ContentPage>

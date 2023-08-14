@@ -1,0 +1,18 @@
+[
+  {
+    "policeId": 1,
+    "policeNum": 1,
+    "policeType": "deprem",
+    "startDate": "2001-07-21T17:39:51",
+    "endDate": "2040-07-21T17:39:51",
+    "prim": 500
+  },
+  {
+    "policeId": 2,
+    "policeNum": 2,
+    "policeType": "konut",
+    "startDate": "2020-07-21T17:39:51",
+    "endDate": "2025-07-21T17:39:51.75",
+    "prim": 600
+  }
+]
